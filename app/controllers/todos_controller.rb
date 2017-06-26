@@ -15,6 +15,7 @@ class TodosController < ApplicationController
   # GET /todos/new
   def new
     @todo = Todo.new
+    @panel_title = 'New Todo'
   end
 
   # GET /todos/1/edit
@@ -31,6 +32,7 @@ class TodosController < ApplicationController
         format.html { redirect_to @todo, notice: 'Todo was successfully created.' }
         format.json { render :show, status: :created, location: @todo }
       else
+        @panel_title = 'New Todo'
         format.html { render :new }
         format.json { render json: @todo.errors, status: :unprocessable_entity }
       end
@@ -69,6 +71,6 @@ class TodosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def todo_params
-      params.fetch(:todo, {})
+      params.fetch(:todo, {}).permit(:title, :description)
     end
 end
