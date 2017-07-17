@@ -1,5 +1,5 @@
 <li id='<%= dom_id(todo) %>' class='list-group-item'>
-  <input type='checkbox' class='todo-item-checkbox'>
+  <input type='checkbox' class='todo-item-checkbox' <%= 'checked' if todo.complete? %>>
   <%= todo.description %>
   <%= link_to todo, method: :delete, remote: true do %>
     <span class='glyphicon glyphicon-remove pull-right'></span>

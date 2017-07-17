@@ -1,2 +1,1 @@
-$('#todo-list').append('<%= j render @todo %>');
-$('#<%= dom_id @todo %>').highlight();
+$('<%= j render @todo %>').hide().appendTo('#todo-list').fadeIn();

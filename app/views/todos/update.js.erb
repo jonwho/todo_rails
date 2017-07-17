@@ -1,0 +1,3 @@
+$('#<%= dom_id @todo %>').replaceWith(function() {
+  return $('<%= j render @todo %>').hide().fadeIn();
+})
