@@ -1,5 +1,7 @@
-<li class='list-group-item'>
+<li id='<%= dom_id(todo) %>' class='list-group-item'>
   <input type='checkbox' class='todo-item-checkbox'>
   <%= todo.description %>
-  <span class='glyphicon glyphicon-remove pull-right'></span>
+  <%= link_to todo, method: :delete, remote: true do %>
+    <span class='glyphicon glyphicon-remove pull-right'></span>
+  <% end %>
 </li>

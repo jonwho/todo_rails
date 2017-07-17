@@ -35,10 +35,10 @@ class TodosController < ApplicationController
   end
 
   def destroy
-    @todo.destroy
+    @todo = Todo.find_by_id(params[:id])
+    @todo.destroy unless @todo.nil?
     respond_to do |format|
-      format.html { redirect_to todos_url, notice: 'Todo was successfully destroyed.' }
-      format.json { head :no_content }
+      format.js
     end
   end
 
