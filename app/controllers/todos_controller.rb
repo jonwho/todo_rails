@@ -4,14 +4,6 @@ class TodosController < ApplicationController
     @todos = Todo.all
   end
 
-  def new
-    @todo = Todo.new
-    @panel_title = 'New Todo'
-  end
-
-  def edit
-  end
-
   def create
     @todo = Todo.create!(todo_params)
 
@@ -20,8 +12,6 @@ class TodosController < ApplicationController
     end
   end
 
-  # PATCH/PUT /todos/1
-  # PATCH/PUT /todos/1.json
   def update
     respond_to do |format|
       if @todo.update(todo_params)
@@ -43,11 +33,6 @@ class TodosController < ApplicationController
   end
 
   private
-
-  # Use callbacks to share common setup or constraints between actions.
-  def set_todo
-    @todo = Todo.find(params[:id])
-  end
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def todo_params
