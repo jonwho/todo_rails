@@ -8,3 +8,24 @@ $(document).ready ->
       $('#todo-submit').click()
       event.target.value = ''
       event.preventDefault()
+
+  # for dynamic content you need to use a parent element with the event listener
+  # then target the element you want to listen on
+  # using the method `on' will let you listen for dynamic elements
+  $('#todo-list').on('change', 'input:checkbox', ->
+    url = $(this).data('destroyUrl')
+    status = ''
+    if $(this).is(':checked')
+      status = 'complete'
+    else
+      status = 'incomplete'
+    $.ajax(
+      method: 'PUT'
+      url: url
+      data:
+        todo:
+          status: status
+      success: (resp) ->
+        eval(resp)
+    )
+  )

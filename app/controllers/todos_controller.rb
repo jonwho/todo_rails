@@ -3,7 +3,7 @@ class TodosController < ApplicationController
 
   def index
     @todo = Todo.new
-    @todos = Todo.all
+    @todos = Todo.all.order(:created_at)
   end
 
   def create
