@@ -3,7 +3,7 @@
     type='checkbox'
     class='todo-item-checkbox'
     <%= 'checked' if todo.complete? %>
-    data-destroy-url='<%= url_for(todo) %>'
+    data-todo-url='<%= url_for(todo) %>'
   />
   <span class='todo-item-description' style='<%= "text-decoration: line-through" if todo.complete? %>'>
     <%= todo.description %>

@@ -13,7 +13,7 @@ $(document).ready ->
   # then target the element you want to listen on
   # using the method `on' will let you listen for dynamic elements
   $('#todo-list').on('change', 'input:checkbox', ->
-    url = $(this).data('destroyUrl')
+    url = $(this).data('todoUrl')
     status = ''
     if $(this).is(':checked')
       status = 'complete'
