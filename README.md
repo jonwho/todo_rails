@@ -1,24 +1,21 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## TODO
+See [board](https://github.com/jonwho/todo_rails/projects/1).
 
-Things you may want to cover:
+## Install
+* Get dependencies `bundle install`
+* Create database `rails db:create`
+* Run migrations `rails db:migrate`
 
-* Ruby version
+## Development
+* Start server `rails s`
 
-* System dependencies
+## Deployment
+Hosted on Heroku. Get Heroku remote and push to master when ready. Steps should be...
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```
+git push heroku master
+heroku run rails --trace db:migrate (if any pending migrations)
+heroku restart (to reload schema if ran migrations)
+```
