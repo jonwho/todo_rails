@@ -53,8 +53,8 @@ heroku git:remote -a <heroku_app_name>
 ### ENV vars setup
 ```
 # These variables needed to work OAuth.
-heroku config:set GOOGLE_OAUTH2_CLIENTID=xxxxxxxxxxxx`
-heroku config:set GOOGLE_OAUTH2_SECRET=yyyyyyyyyyyyyy`
+heroku config:set GOOGLE_OAUTH2_CLIENTID=xxxxxxxxxxxx
+heroku config:set GOOGLE_OAUTH2_SECRET=yyyyyyyyyyyyyy
 ```
 
 ```
