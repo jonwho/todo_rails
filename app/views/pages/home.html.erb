@@ -1,13 +1,6 @@
 <ul id='todo-list' class='todo-list list-group'>
   <% @todos.each do |todo| %>
     <li id='<%= dom_id(todo) %>' class='list-group-item'>
-      <input
-        type='checkbox'
-        class='todo-item-checkbox'
-        <%= 'checked' if todo.complete? %>
-        disabled
-        data-todo-url='<%= url_for(todo) %>'
-      />
       <span class='todo-item-description' style='<%= "text-decoration: line-through" if todo.complete? %>'>
         <%= todo.description %>
       </span>
