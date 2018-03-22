@@ -3,7 +3,7 @@ class TodosController < ApplicationController
 
   def index
     @todo  = Todo.new
-    @todos = Todo.all.order(:created_at)
+    @todos = Todo.where('user_id = ?', current_user.id).order(:created_at)
   end
 
   def create
@@ -37,6 +37,9 @@ class TodosController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def todo_params
-    params.require(:todo).permit(:description, :status)
+    params
+      .require(:todo)
+      .permit(:description, :status)
+      .merge(user_id: current_user.id)
   end
 end
