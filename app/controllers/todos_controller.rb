@@ -2,7 +2,7 @@ class TodosController < ApplicationController
   before_action :set_todo, only: [:update, :destroy]
 
   def index
-    @todo = Todo.new
+    @todo  = Todo.new
     @todos = Todo.all.order(:created_at)
   end
 
