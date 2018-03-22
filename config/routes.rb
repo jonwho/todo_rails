@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :todos, only: [:index, :create, :update, :destroy]
 
-  root 'todos#index'
+  root 'pages#home'
 
   get 'auth/:provider/callback' => 'sessions#create'
   get 'auth/failure' => redirect('/')
