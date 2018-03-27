@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root 'pages#home'
 
+  get '/about' => 'pages#about'
+
   resources :todos, only: [:index, :create, :update, :destroy]
   resources :sessions, only: [:create, :destroy]
 
