@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :todos
+  has_many :todos, dependent: :destroy
 
   def self.from_omniauth(auth)
     pre_existing_user = User.find_by_email(auth.info.email)

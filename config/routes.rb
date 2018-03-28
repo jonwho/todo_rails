@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   resources :todos, only: [:index, :create, :update, :destroy]
   resources :sessions, only: [:create, :destroy]
+  resources :users, only: [:destroy]
 
   get 'auth/:provider/callback' => 'sessions#create'
   get 'auth/failure' => redirect('/')
