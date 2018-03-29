@@ -1,9 +1,21 @@
+<h1>Random todos from all users</h1>
+
 <ul id='todo-list' class='todo-list list-group'>
-  <% @todos.each do |todo| %>
-    <li id='<%= dom_id(todo) %>' class='list-group-item'>
-      <span class='todo-item-description' style='<%= "text-decoration: line-through" if todo.complete? %>'>
-        <%= todo.description %>
-      </span>
-    </li>
+  <% if @todos.present? %>
+    <% @todos.each do |todo| %>
+      <li id='<%= dom_id(todo) %>' class='list-group-item'>
+        <span class='todo-item-description' style='<%= "text-decoration: line-through" if todo.complete? %>'>
+          <%= todo.description %>
+        </span>
+      </li>
+    <% end %>
+  <% else %>
+    <ul class='todo-list list-group'>
+      <li class='list-group-item'>
+        <span class='todo-item-description'>
+          Nobody has written a todo! Sign in and be the first.
+        </span>
+      </li>
+    </ul>
   <% end %>
 </ul>
