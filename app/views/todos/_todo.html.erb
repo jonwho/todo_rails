@@ -11,4 +11,18 @@
   <%= link_to todo, method: :delete, remote: true do %>
     <span class='glyphicon glyphicon-remove pull-right'></span>
   <% end %>
+
+  <h6>
+    <time datetime="<%= todo.created_at.to_date.to_s %>">
+      created <%= time_ago_in_words(todo.created_at) %> ago
+    </time>
+
+    <br />
+
+    <% if todo.complete? %>
+      <time datetime="<%= todo.updated_at.to_date.to_s %>">
+        completed <%= time_ago_in_words(todo.updated_at) %> ago
+      </time>
+    <% end %>
+  </h6>
 </li>
