@@ -7,6 +7,19 @@
         <span class='todo-item-description' style='<%= "text-decoration: line-through" if todo.complete? %>'>
           <%= todo.description %>
         </span>
+        <h6>
+          <time datetime="<%= todo.created_at.to_date.to_s %>">
+            created <%= time_ago_in_words(todo.created_at) %> ago
+          </time>
+
+          <br />
+
+          <% if todo.complete? %>
+            <time datetime="<%= todo.updated_at.to_date.to_s %>">
+              completed <%= time_ago_in_words(todo.updated_at) %> ago
+            </time>
+          <% end %>
+        </h6>
       </li>
     <% end %>
   <% else %>
