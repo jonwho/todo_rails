@@ -3,13 +3,13 @@ class Todo < ApplicationRecord
 
   validates :description, presence: true
 
+  scope :deleted, -> { where(soft_deleted: true) }
+  scope :not_deleted, -> { where(soft_deleted: false) }
+
   enum status: [:incomplete, :complete]
 
-  before_save :default_values
-
-  private
-
-  def default_values
-    self.status ||= 0
+  def soft_delete
+    self.soft_deleted = true
+    save
   end
 end

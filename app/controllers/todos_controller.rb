@@ -4,7 +4,7 @@ class TodosController < ApplicationController
 
   def index
     @todo  = Todo.new
-    @todos = Todo.where('user_id = ?', current_user.id).order(:created_at)
+    @todos = Todo.not_deleted.where('user_id = ?', current_user.id).order(:created_at)
   end
 
   def create
@@ -24,7 +24,7 @@ class TodosController < ApplicationController
   end
 
   def destroy
-    @todo.destroy unless @todo.nil?
+    @todo.soft_delete unless @todo.nil?
     respond_to do |format|
       format.js
     end
