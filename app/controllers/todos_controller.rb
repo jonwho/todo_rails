@@ -1,4 +1,5 @@
 class TodosController < ApplicationController
+  before_action :ensure_user
   before_action :set_todo, only: [:update, :destroy]
 
   def index
@@ -30,6 +31,10 @@ class TodosController < ApplicationController
   end
 
   private
+
+  def ensure_user
+    redirect_to root_path, flash: { danger: 'You must be signed in first!' } if current_user.blank?
+  end
 
   def set_todo
     @todo = Todo.find_by_id(params[:id])
