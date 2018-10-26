@@ -3,7 +3,7 @@ class Todo < ApplicationRecord
 
   validates :description, presence: true
 
-  scope :deleted, -> { where(soft_deleted: true) }
+  scope :deleted, -> { where(:soft_deleted => true) }
   scope :not_deleted, -> { where(soft_deleted: false) }
 
   enum status: [:incomplete, :complete]
